@@ -32,7 +32,7 @@ stages = input('Numstages: ')
 
 type = input('FeatureType:')
 
-tread = input('Number of treads: ')
+thread = input('Number of threads: ')
 
 #if feature == '1':
 #    type = 'HOG'
@@ -112,7 +112,7 @@ def generatevec():
     return negcnt
 
 def training():
-    command = 'opencv_traincascade'+' -data '+cascadepath+' -vec '+vecname+' -bg neg.txt'+' -numStages '+str(stages)+' -numPos '+str(countpos)+' -numNeg '+str(generatevec())+' -featureType '+type+' -w 64 -h 64 '+' -minHitRate '+str(minhitrate)+' -maxFalseAlarmRate '+str(maxfalsealarmrate)+' -numTreads '+str(tread)
+    command = 'opencv_traincascade'+' -data '+cascadepath+' -vec '+vecname+' -bg neg.txt'+' -numStages '+str(stages)+' -numPos '+str(countpos)+' -numNeg '+str(generatevec())+' -featureType '+type+' -w 64 -h 64 '+' -minHitRate '+str(minhitrate)+' -maxFalseAlarmRate '+str(maxfalsealarmrate)+' -numTreads '+str(thread)
     print('Training STARTS here')
     print('Please PAY ATTENTION to the LOAD')
     os.system(command)
